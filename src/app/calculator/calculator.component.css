@@ -1,0 +1,39 @@
+.container {
+  position: absolute;
+  width: 30%;
+  margin: auto;
+  top: 25%;
+  left: 30%;
+  background: gray;
+  padding: 5%;
+}
+
+.display {
+  position: absolute;
+  left: 34%;
+  top: 8%;
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    position: absolute;
+    width: 80%;
+    height: 40%;
+    margin: auto;
+    left: 3%;
+    top: 10%;
+    background: gray;
+    padding: 5%;
+  }
+
+  .calculatorButtons {
+    position: relative;
+    top: 10%;
+  }
+
+  .display {
+    position: absolute;
+    left: 25%;
+    top: 4%;
+  }
+}
