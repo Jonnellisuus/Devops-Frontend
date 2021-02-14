@@ -3,14 +3,14 @@
   width: 30%;
   margin: auto;
   top: 25%;
-  left: 30%;
+  left: 35%;
   background: gray;
   padding: 5%;
 }
 
 .display {
   position: absolute;
-  left: 34%;
+  left: 23.5%;
   top: 8%;
 }
 
@@ -20,7 +20,7 @@
     width: 80%;
     height: 40%;
     margin: auto;
-    left: 3%;
+    left: 6%;
     top: 10%;
     background: gray;
     padding: 5%;
@@ -28,12 +28,12 @@
 
   .calculatorButtons {
     position: relative;
-    top: 10%;
+    top: 15%;
   }
 
   .display {
     position: absolute;
-    left: 25%;
+    left: 18%;
     top: 4%;
   }
 }
