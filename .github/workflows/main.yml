@@ -42,7 +42,7 @@ jobs:
       uses: actions/download-artifact@main
       with:
         name: webpack artifacts
-        path: public/
+        path: public
     - name: Deploy to heroku
       uses: akhileshns/heroku-deploy@v3.10.9
       with:
