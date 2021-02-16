@@ -1,5 +1,7 @@
-name: Devops Angular
-on: push
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -10,7 +12,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Cache node modules
+
+      - name: Devops Angular
         uses: actions/cache@v1
         with:
           path: ~/.npm
@@ -21,33 +24,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install and npm run build
-        run: |
-          npm install
-          npm run build
-      - uses: actions/upload-artifact@master
-        with:
-          name: webpack artifacts
-          path: public/
-
-  Build-and-Push-Docker-Image:
-    runs-on: ubuntu-latest
-    needs: build
-    name: Docker Build, Tag, Push
-    
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-    - name: Download built artifact
-      uses: actions/download-artifact@main
-      with:
-        name: webpack artifacts
-        path: public
-    - name: Deploy to heroku
-      uses: akhileshns/heroku-deploy@v3.10.9
-      with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "jonne-kiukas"
-          heroku_email: "jonne.kiukas@student.lab.fi"
-          remote_branch: master 
-          usedocker: true
+               
+      - name: push to heroku
+        env : 
+            HEROKU_REGISTRY_URL: registry.heroku.com
+            HEROKU_TOKEN : ${{ secrets.HEROKU_API_KEY }}
+        run : |
+            docker login --username=_ --password $HEROKU_TOKEN $HEROKU_REGISTRY_URL
+            export HEROKU_API_KEY=$HEROKU_TOKEN
+            heroku container:login
+            heroku container:push web --app jonne-kiukas
+            heroku container:release web --app jonne-kiukas
+            heroku ps:scale web=1 --app jonne-kiukas
