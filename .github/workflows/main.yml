@@ -1,8 +1,5 @@
 name: Devops Angular
-on:
-  push:
-    branches:
-      - master
+on: push
 
 jobs:
   build:
@@ -24,21 +21,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-   
-      - name : push to staging server with ssh
-        env :
-            SSHPASS : ${{ secrets.SSHPASS }}
-            SERVER : ${{ secrets.SERVER}}
-        run : |
-            sudo apt-get update 
-            sudo apt-get install sshpass -y
-            npm install -g @angular/cli@11.1.4
-            npm ci --debug
-            ng build --prod
-            cd dist/my-first-app/
-            sudo sshpass  -p ${SSHPASS}   -v  ssh -o StrictHostKeyChecking=no root@${SERVER} 'rm -rf /usr/share/nginx/html/*'
-            sudo sshpass -p ${SSHPASS} scp -v  -o stricthostkeychecking=no -r *.* root@${SERVER}:/usr/share/nginx/html
-               
+      - name: npm install and npm run build
+        run: |
+          npm install
+          npm run build
+      - uses: actions/upload-artifact@master
+        with:
+          name: webpack artifacts
+          path: public/
+
   Build-and-Push-Docker-Image:
     runs-on: ubuntu-latest
     needs: build
@@ -51,7 +42,7 @@ jobs:
       uses: actions/download-artifact@main
       with:
         name: webpack artifacts
-        path: public
+        path: public/
     - name: Deploy to heroku
       uses: akhileshns/heroku-deploy@v3.10.9
       with:
