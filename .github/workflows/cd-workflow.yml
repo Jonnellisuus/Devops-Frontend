@@ -62,5 +62,5 @@ jobs:
         username: ${{github.actor}}
         password: ${{secrets.DEVOPS-TOKEN}}
         registry: docker.pkg.github.com
-        repository: jkkiukas/Devops-Frontend/jonnekiukas
+        repository: jkkiukas/devops-frontend/jonnekiukas
         tag_with_sha: true
