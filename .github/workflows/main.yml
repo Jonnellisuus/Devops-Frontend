@@ -28,7 +28,7 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: webpack artifacts
-          path: .dist/src/app/
+          path: .dist/src/app/calculator/calculator.component.html
 
   Build-and-Push-Docker-Image:
     runs-on: ubuntu-latest
@@ -42,7 +42,7 @@ jobs:
       uses: actions/download-artifact@main
       with:
         name: webpack artifacts
-        path: .dist/src/app/
+        path: .dist/src/app/calculator/calculator.component.html
     - name: Deploy to heroku
       uses: akhileshns/heroku-deploy@v3.10.9
       with:
