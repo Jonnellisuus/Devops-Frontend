@@ -1,4 +1,4 @@
-name: Docker CD
+name: Devops Angular
 
 on:
   push:
