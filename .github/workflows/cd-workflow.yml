@@ -16,7 +16,7 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: webpack artifacts
-          path: .dist/
+          path: src/
  
   Build-and-Push-Docker-Image:
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
         uses: actions/download-artifact@main
         with:
           name: webpack artifacts
-          path: .dist
+          path: src
       - uses: akhileshns/heroku-deploy@v3.10.9
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
