@@ -8,19 +8,19 @@ import {CinemaPipe} from './cinema/cinema.pipe';
 import {CalculatorComponent} from './calculator/calculator.component';
 import {ForexComponent} from './forex/forex.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
-import {MatButtonModule} from "@angular/material/button";
-import {MatCardModule} from "@angular/material/card";
-import {MatExpansionModule} from "@angular/material/expansion";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatGridListModule} from "@angular/material/grid-list";
-import {MatIconModule} from "@angular/material/icon";
-import {MatInputModule} from "@angular/material/input";
-import {MatListModule} from "@angular/material/list";
-import {MatMenuModule} from "@angular/material/menu";
-import {MatSelectModule} from "@angular/material/select";
-import {HttpClientModule} from "@angular/common/http";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {FormsModule} from "@angular/forms";
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSelectModule} from '@angular/material/select';
+import {HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
