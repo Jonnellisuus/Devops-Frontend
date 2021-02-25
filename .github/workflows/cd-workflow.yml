@@ -38,7 +38,7 @@ jobs:
       - name: npm install, and test
         run: |
           npm install
-          npm test
+          npm run test-headless
         env:
           CI: true
   Build-and-Push-Docker-Image:
